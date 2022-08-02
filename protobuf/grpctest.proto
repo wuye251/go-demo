@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package grpctest;
+
+option go_package = "api/v1";
+
+message PersonRequest {
+    string name = 1;
+    int32 id = 2;  // Unique ID number for this person.
+    string email = 3;
+}
+message PersonResponse {
+    int32 code = 1;
+    string message = 2;
+}
+service SearchService {
+    rpc Search(PersonRequest) returns (PersonResponse);
+  }
